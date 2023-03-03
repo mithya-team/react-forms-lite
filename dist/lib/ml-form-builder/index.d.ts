@@ -1,6 +1,6 @@
 import { FormikProps } from "formik";
 import React from "react";
-import { FieldItemProps } from "./lib/Types";
+import { FieldItemProps, FieldProps } from "./lib/Types";
 import "./index.module.scss";
 import { TFieldConditions } from "./lib/ConditionalOperations";
 export interface ReadOnlyProps {
@@ -48,11 +48,6 @@ export interface BuilderProps<T = any> {
     actionConfig?: FormActionProps;
     settings?: BuilderSettingsProps;
     isInProgress?: boolean;
-}
-export interface FieldProps<T = any> {
-    formikProps?: FormikProps<T>;
-    fieldConfig?: FormConfig;
-    isReadOnly?: boolean;
 }
 export declare const attachField: (type: Array<string> | string, component: JSX.Element, props?: object) => void;
 export declare const setDefaultProps: (type: Array<string> | string, props: object) => void;

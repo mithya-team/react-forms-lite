@@ -22557,6 +22557,11 @@ const getConditionalProps = (itemConfig, formikProps) => {
     }
 };
 
+// export interface FieldProps<T = any> {
+//   formikProps?: FormikProps<T>;
+//   fieldConfig?: FormConfig;
+//   isReadOnly?: boolean;
+// }
 const ComponentMapConfig = {};
 const attachField = (type, component, props) => {
     if (lodashExports.isArray(type)) {
@@ -22635,8 +22640,8 @@ const BuildFormRow = (props) => {
             lodashExports.isFunction(item.readOnlyProps.renderer)
             ? item.readOnlyProps.renderer({
                 formikProps,
-                fieldConfig: item,
-                isReadOnly: settings.isReadOnly,
+                // fieldConfig: item,
+                // isReadOnly: settings.isReadOnly,
             })
             : React.cloneElement(Component, {
                 fieldProps,

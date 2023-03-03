@@ -1,4 +1,33 @@
-.submit-btn {
+.text-label {
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.input-box {
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 30px;
+  padding: 0px;
+  border-bottom: 1px solid blueviolet;
+}
+
+.text-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.text-label {
+  color: blueviolet;
+}
+
+.text-field-box {
+  width: 100%;
+}.submit-btn {
   margin-top: 30px;
   font-size: 16px;
   background-color: blueviolet;
@@ -56,129 +85,6 @@
 
 .action-right > .loader {
   position: static;
-}.select-field-label {
-  font-size: 16px;
-  opacity: 0.8;
-}
-
-.select-option {
-  box-sizing: border-box;
-  border: none;
-  outline: none;
-  width: 100%;
-  height: 30px;
-  padding: 0px;
-  border-bottom: 1px solid blueviolet;
-}
-
-.select-field {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
-}
-
-.select-field-label {
-  color: blueviolet;
-}
-
-.select-container {
-  width: 100%;
-}.text-label {
-  font-size: 16px;
-  opacity: 0.8;
-}
-
-.input-box {
-  box-sizing: border-box;
-  border: none;
-  outline: none;
-  width: 100%;
-  height: 30px;
-  padding: 0px;
-  border-bottom: 1px solid blueviolet;
-}
-
-.text-field {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
-}
-
-.text-label {
-  color: blueviolet;
-}
-
-.text-field-box {
-  width: 100%;
-}.checkbox-label {
-  font-size: 16px;
-  opacity: 0.8;
-}
-
-.checkbox-field {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
-}
-
-.checkbox-label {
-  color: blueviolet;
-}
-
-.isColumn {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.checkbox-container {
-  display: flex;
-}
-
-.checkbox-name {
-  margin: 3px 3px 0px 0px;
-}.radio-label {
-  font-size: 16px;
-  opacity: 0.8;
-}
-
-.radio-field {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
-}
-
-.radio-label {
-  color: blueviolet;
-}
-
-.isColumn {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.radio-name {
-  margin: 3px 3px 0px 0px;
-}.helper-text, .error-text {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-.error-text {
-  color: red;
-}
-
-.helper-text {
-  color: black;
 }.helper-text {
   font-size: 14px;
   opacity: 0.8;
@@ -253,6 +159,89 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}.radio-label {
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.radio-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.radio-label {
+  color: blueviolet;
+}
+
+.isColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.radio-name {
+  margin: 3px 3px 0px 0px;
+}.select-field-label {
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.select-option {
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 30px;
+  padding: 0px;
+  border-bottom: 1px solid blueviolet;
+}
+
+.select-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.select-field-label {
+  color: blueviolet;
+}
+
+.select-container {
+  width: 100%;
+}.checkbox-label {
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.checkbox-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.checkbox-label {
+  color: blueviolet;
+}
+
+.isColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.checkbox-container {
+  display: flex;
+}
+
+.checkbox-name {
+  margin: 3px 3px 0px 0px;
 }.file-input-label {
   font-size: 16px;
   opacity: 0.8;
@@ -389,4 +378,15 @@ input:checked + .slider:before {
 
 .array-add-icon {
   display: flex;
+}.helper-text, .error-text {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.error-text {
+  color: red;
+}
+
+.helper-text {
+  color: black;
 }

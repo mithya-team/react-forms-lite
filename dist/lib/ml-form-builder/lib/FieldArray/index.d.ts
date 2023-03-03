@@ -1,7 +1,6 @@
 import React from "react";
 import "./index.module.scss";
-import { FieldProps } from "../../index";
-import { FieldItemProps } from "../Types";
+import { FieldItemProps, FieldProps } from "../Types";
 export interface FieldArrayProps extends FieldItemProps {
     itemType: string;
     addButtonText?: string;

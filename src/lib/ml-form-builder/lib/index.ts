@@ -9,3 +9,4 @@ export * from './FileInput';
 export * from './PhoneField';
 export * from './Constants';
 export * from './PlainText';
+export * from './Types';

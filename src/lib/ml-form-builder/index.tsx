@@ -13,7 +13,7 @@ import {
   TextField, 
   PlainText,
 } from "./lib";
-import { FieldItemProps, } from "./lib/Types";
+import { FieldItemProps, FieldProps, } from "./lib/Types";
 import "./index.module.scss";
 
 import {
@@ -71,11 +71,11 @@ export interface BuilderProps<T = any> {
   isInProgress?: boolean;
 }
 
-export interface FieldProps<T = any> {
-  formikProps?: FormikProps<T>;
-  fieldConfig?: FormConfig;
-  isReadOnly?: boolean;
-}
+// export interface FieldProps<T = any> {
+//   formikProps?: FormikProps<T>;
+//   fieldConfig?: FormConfig;
+//   isReadOnly?: boolean;
+// }
 
 const ComponentMapConfig: {
   [key: string]: { component: JSX.Element; props?: object };
@@ -184,8 +184,8 @@ export const BuildFormRow: React.FC<FormRowProps> = (props) => {
             isFunction(item.readOnlyProps.renderer)
               ? item.readOnlyProps.renderer({
                   formikProps,
-                  fieldConfig: item,
-                  isReadOnly: settings.isReadOnly,
+                  // fieldConfig: item,
+                  // isReadOnly: settings.isReadOnly,
                 })
               : React.cloneElement(Component, {
                   fieldProps,
