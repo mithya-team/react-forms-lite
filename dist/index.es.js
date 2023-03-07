@@ -22487,6 +22487,17 @@ const PlainText = (props) => {
     return (React.createElement("div", { className: clsx("plain-text-field", classNames) }, isTextHtmlString && typeof text === "string" ? (React.createElement("div", { className: "plaintext-string", dangerouslySetInnerHTML: { __html: text }, ...nativeProps })) : (React.createElement("div", { className: "plaintext" }, text))));
 };
 
+const TextArea = (props) => {
+    const { fieldProps = {}, formikProps = {}, } = props;
+    const { label, name = "", classNames, placeholder, nativeProps, disabled, } = fieldProps;
+    const fieldValue = lodashExports.get(formikProps, `values.${name}`);
+    return (React.createElement("div", { className: clsx("textarea-field", classNames, name) },
+        label && React.createElement("label", { className: "textarea-label" }, label),
+        React.createElement("div", { className: clsx("textarea-field-box") },
+            React.createElement("textarea", { className: clsx("textarea-box"), placeholder: `${placeholder || ""}`, name: name, value: fieldValue || "", onBlur: formikProps.handleBlur, onChange: formikProps.handleChange, disabled: disabled, ...nativeProps })),
+        React.createElement(HelperText, { fieldProps: fieldProps, formikProps: formikProps })));
+};
+
 const compare = (value1, operator, value2) => {
     switch (operator) {
         case ">":
@@ -22589,6 +22600,7 @@ attachField("array", React.createElement(ArrayField, null));
 attachField("password", React.createElement(TextField, null), { type: "password" });
 attachField("text", React.createElement(TextField, null), { type: "text" });
 attachField("plaintext", React.createElement(PlainText, null));
+attachField("textarea", React.createElement(TextArea, null));
 const BuildFormRow = (props) => {
     const { schema, rowId, formikProps = {}, settings = {
         horizontalSpacing: 10,
@@ -22699,5 +22711,5 @@ const ReactForm = (props) => {
 
 var index = './lib/ReactForm';
 
-export { ArrayField, BuildFormRow, COUNTRY_LIST, CheckBox, ComponentMapConfig$1 as ComponentMapConfig, FileInput, HelperText, MLFormAction, MLFormBuilder, MLFormContent, PhoneField, PlainText, Radio, ReactForm, SelectField, Switch, TextField, attachField, index as default, getComponentConfig, getFieldError, getMenuOptions, processFilesWithCallback, setDefaultProps, setValue };
+export { ArrayField, BuildFormRow, COUNTRY_LIST, CheckBox, ComponentMapConfig$1 as ComponentMapConfig, FileInput, HelperText, MLFormAction, MLFormBuilder, MLFormContent, PhoneField, PlainText, Radio, ReactForm, SelectField, Switch, TextArea, TextField, attachField, index as default, getComponentConfig, getFieldError, getMenuOptions, processFilesWithCallback, setDefaultProps, setValue };
 //# sourceMappingURL=index.es.js.map

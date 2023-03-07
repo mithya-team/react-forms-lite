@@ -12,6 +12,7 @@ import {
   ArrayField, 
   TextField, 
   PlainText,
+  TextArea,
 } from "./lib";
 import { FieldItemProps, FieldProps, } from "./lib/Types";
 import "./index.module.scss";
@@ -120,6 +121,7 @@ attachField("array", <ArrayField />);
 attachField("password", <TextField />, { type: "password" });
 attachField("text", <TextField />, { type: "text" });
 attachField("plaintext",<PlainText/>);
+attachField("textarea", <TextArea/>);
 
 export const BuildFormRow: React.FC<FormRowProps> = (props) => {
   const {
