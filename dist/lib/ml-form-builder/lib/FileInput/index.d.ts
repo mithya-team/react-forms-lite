@@ -1,7 +1,8 @@
 import React from "react";
 import { ReadAsType } from "../../Utils";
-import { FieldItemProps, FieldProps } from "../Types";
+import { FieldItemProps } from "../Types";
 import "./index.module.scss";
+import { FieldProps } from "../..";
 export interface TFile {
     name: string;
     type: string;

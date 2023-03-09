@@ -2,9 +2,10 @@ import React from "react";
 import "./index.module.scss";
 import { get, isEmpty, map } from "lodash";
 import clsx from "clsx";
-import { FieldItemProps, FieldProps, Option } from "../Types";
+import { FieldItemProps, Option } from "../Types";
 import { FormikProps } from "formik";
 import { HelperText } from "../HelperText";
+import { FieldProps } from "../..";
 
 export interface CheckboxFieldProps extends FieldItemProps {
   options?: Option[];

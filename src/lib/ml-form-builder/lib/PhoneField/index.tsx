@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { FieldItemProps, FieldProps } from "../Types";
+import { FieldItemProps } from "../Types";
 import "./index.module.scss";
 import { CountryCodeFormat, COUNTRY_LIST } from "../Constants/CountryList";
 import { get } from "lodash";
 import { FormikProps } from "formik";
 import clsx from "clsx";
-import {HelperText} from "../HelperText";
+import { HelperText } from "../HelperText";
+import { FieldProps } from "../..";
 
 export interface PhoneFieldProps extends FieldItemProps {
   countryCodeLabel?: string;
@@ -75,7 +76,7 @@ export const PhoneField: React.FC<PhoneFieldsProps> = (props) => {
   };
 
   return (
-    <div className={clsx("phone-field", classNames, name)}>
+    <div className={clsx("phone-field", classNames)}>
       <label className="phone-field-label" id={name}>
         {countryCodeLabel || "Country Code"} {label}
       </label>
@@ -111,4 +112,3 @@ export const PhoneField: React.FC<PhoneFieldsProps> = (props) => {
     </div>
   );
 };
-

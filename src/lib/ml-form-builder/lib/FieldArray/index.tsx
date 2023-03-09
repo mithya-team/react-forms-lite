@@ -3,9 +3,10 @@ import { get } from "lodash";
 import "./index.module.scss";
 import { FieldArray, FieldArrayRenderProps, FormikProps } from "formik";
 // import { FieldProps } from "../../index";
-import {getComponentConfig} from "../../Utils";
+import { getComponentConfig } from "../../Utils";
 import clsx from "clsx";
-import { FieldItemProps, FieldProps } from "../Types";
+import { FieldItemProps } from "../Types";
+import { FieldProps } from "../..";
 
 export interface FieldArrayProps extends FieldItemProps {
   itemType: string;
@@ -16,7 +17,7 @@ export interface FieldArrayProps extends FieldItemProps {
   onRemoveButtonClick?: (index: number) => Promise<boolean>;
   arrayItemFieldProps?: object;
   defaultItemValue?: any;
-  fieldArrayLabel?:string;
+  fieldArrayLabel?: string;
 }
 
 interface FieldsArrayProps extends FieldProps {
@@ -35,7 +36,7 @@ export const ArrayField: React.FC<FieldsArrayProps> = (props) => {
     name = "",
     itemType,
     addButton,
-    removeButton ,
+    removeButton,
     onAddButtonClick,
     onRemoveButtonClick,
     arrayItemFieldProps = {},
@@ -73,53 +74,48 @@ export const ArrayField: React.FC<FieldsArrayProps> = (props) => {
   };
 
   return (
-    
-
     <div className={clsx("array-field", classNames)}>
-      {fieldArrayLabel && <label className="field-array-container-label">{fieldArrayLabel}</label>}
-
-      {label && (
-        <label className="field-array-label">{label}</label>
+      {fieldArrayLabel && (
+        <label className="field-array-container-label">{fieldArrayLabel}</label>
       )}
+
+      {label && <label className="field-array-label">{label}</label>}
       <FieldArray
         name={name}
         render={(arrayHelpers) => (
           <div className="field-array-child-box-container">
-
-            {(values || []).map(( index: number) => (
-                <div
+            {(values || []).map((index: number) => (
+              <div
                 key={`${fieldProps.name}-${index}`}
                 className="field-array-box"
               >
                 <div className="field-array-child">
-                {React.cloneElement(itemComponentConfig.component, {
-                  name: fieldProps.name,
-                  key: `${fieldProps.name}-${index}`,
-                  itemIndex: index,
-                  arrayHelpers,
-                  formikProps,
-                  fieldProps: {
-                    ...arrayItemFieldProps,
-                    name: `${name}[${index}]`,
-                  },
-                  ...itemComponentConfig.props,
-                  ...nativeProps,
-                  
-                })}
-                {removeButton ? (                   
-                  removeButton
-                ) : (
-                  <button
-                    className="array-remove-icon"
-                    onClick={() => handleElementRemove(arrayHelpers, index)}
-                  >
-                    {/* - */}
-                    {<p style={{ fontSize: "8px" }}>❌</p>}
-                  </button>
-                )}
+                  {React.cloneElement(itemComponentConfig.component, {
+                    name: fieldProps.name,
+                    key: `${fieldProps.name}-${index}`,
+                    itemIndex: index,
+                    arrayHelpers,
+                    formikProps,
+                    fieldProps: {
+                      ...arrayItemFieldProps,
+                      name: `${name}[${index}]`,
+                    },
+                    ...itemComponentConfig.props,
+                    ...nativeProps,
+                  })}
+                  {removeButton ? (
+                    removeButton
+                  ) : (
+                    <button
+                      className="array-remove-icon"
+                      onClick={() => handleElementRemove(arrayHelpers, index)}
+                    >
+                      {/* - */}
+                      {<p style={{ fontSize: "8px" }}>❌</p>}
+                    </button>
+                  )}
                 </div>
               </div>
-              
             ))}
             {addButton ? (
               addButton
@@ -138,4 +134,3 @@ export const ArrayField: React.FC<FieldsArrayProps> = (props) => {
     </div>
   );
 };
-

@@ -1,6 +1,7 @@
 import React from "react";
-import { FieldItemProps, FieldProps, Option } from "../Types";
+import { FieldItemProps, Option } from "../Types";
 import "./index.module.scss";
+import { FieldProps } from "../..";
 export interface SelectFProps extends FieldItemProps {
     options?: Option[];
     emptyItem?: string | boolean;

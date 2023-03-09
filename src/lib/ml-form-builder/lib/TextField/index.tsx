@@ -2,9 +2,10 @@ import { get } from "lodash";
 import React from "react";
 import "./index.module.scss";
 import clsx from "clsx";
-import { FieldItemProps, FieldProps } from "../Types";
-import {HelperText} from "../HelperText";
+import { FieldItemProps } from "../Types";
+import { HelperText } from "../HelperText";
 import { FormikProps } from "formik";
+import { FieldProps } from "../../";
 
 export interface TextFieldProps extends FieldItemProps {
   type?: string;
@@ -34,11 +35,11 @@ export const TextField: React.FC<TextFieldsProps> = (props) => {
   const fieldValue = get(formikProps, `values.${name}`) as string;
 
   return (
-    <div className={clsx("text-field", classNames, name)}>
+    <div className={clsx("text-field", classNames)}>
       {label && <label className="text-label">{label}</label>}
       <div className={clsx("text-field-box")}>
         <input
-          className={clsx("input-box", )}
+          className={clsx("input-box")}
           type={type}
           placeholder={`${placeholder || ""}`}
           name={name}
@@ -54,5 +55,3 @@ export const TextField: React.FC<TextFieldsProps> = (props) => {
     </div>
   );
 };
-
-

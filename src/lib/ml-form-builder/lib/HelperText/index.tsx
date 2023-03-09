@@ -1,9 +1,10 @@
 import clsx from "clsx";
 import { FormikProps } from "formik";
 import React from "react";
-import { FieldItemProps, FieldProps } from "../Types";
+import { FieldItemProps } from "../Types";
 import { getFieldError } from "../../Utils";
 import "./index.module.scss";
+import { FieldProps } from "../..";
 
 interface HelperTextProps extends FieldProps {
   fieldProps?: FieldItemProps;
@@ -14,7 +15,7 @@ export const HelperText: React.FC<HelperTextProps> = (props) => {
     formikProps = {} as FormikProps<unknown>,
   } = props;
 
-  const { name, helperText, classNames, } = fieldProps;
+  const { name, helperText, classNames } = fieldProps;
   const fieldError = getFieldError(name || "", formikProps);
   return (
     <div className={clsx("text-error-helper-field", classNames, name)}>
@@ -30,4 +31,3 @@ export const HelperText: React.FC<HelperTextProps> = (props) => {
     </div>
   );
 };
-
