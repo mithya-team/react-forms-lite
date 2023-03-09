@@ -1,6 +1,6 @@
-@import "../Styles/variables";
-@import "../Styles/mixins";
-@import "../Styles/extends";
+@import "../../Styles/extends";
+@import "../../Styles/mixins";
+@import "../../Styles/extends";
 
 .select-field {
     @include componentField;
@@ -9,9 +9,11 @@
 .select-field-label {
     @include componentLabel;
 }
+
 .select-container {
     width: 100%;
 }
-.select-option{
+
+.select-option {
     @extend %input-select-box;
 }

@@ -1,6 +1,6 @@
-@import "../Styles/variables";
-@import "../Styles/mixins";
-@import "../Styles/extends";
+@import "../../Styles/extends";
+@import "../../Styles/mixins";
+@import "../../Styles/extends";
 
 .checkbox-field {
     @include componentField;
@@ -10,12 +10,14 @@
     @include componentLabel;
 }
 
-.isColumn{
+.isColumn {
     @include isColumn;
 }
-.checkbox-container{
+
+.checkbox-container {
     display: flex;
 }
-.checkbox-name{
+
+.checkbox-name {
     margin: 3px 3px 0px 0px;
 }

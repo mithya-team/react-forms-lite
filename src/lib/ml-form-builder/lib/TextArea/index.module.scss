@@ -1,15 +1,19 @@
-@import "../Styles/variables";
-@import "../Styles/mixins";
-@import "../Styles/extends";
-.textarea-field{
+@import "../../Styles/extends";
+@import "../../Styles/mixins";
+@import "../../Styles/extends";
+
+.textarea-field {
     @include componentField;
 }
+
 .textarea-label {
     @include componentLabel;
 }
-.textarea-box{
+
+.textarea-box {
     @extend %textarea-box;
 }
+
 .textarea-field-box {
     width: 100%;
 }

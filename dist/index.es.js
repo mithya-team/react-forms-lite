@@ -22065,18 +22065,17 @@ const SelectField = (props) => {
 
 const CheckBox = (props) => {
     const { formikProps = {}, fieldProps = {}, } = props;
-    const { options = [], name = "", label, isColumn = false, classNames, nativeProps, disabled, booleanLabel } = fieldProps;
+    const { options = [], name = "", label, isColumn = false, classNames, nativeProps, disabled, booleanLabel, } = fieldProps;
     const fieldValue = lodashExports.get(formikProps, `values.${name}`) || [];
-    const booleanValue = lodashExports.get(formikProps, `values.${name}`);
+    const booleanValue = lodashExports.get(formikProps, `values.${name}`) || "";
     return (React.createElement("div", { className: clsx("checkbox-field ", classNames) },
         label && React.createElement("span", { className: "checkbox-label" }, label),
-        React.createElement("div", { className: clsx("checkbox-container", isColumn ? "isColumn" : undefined) }, (!lodashExports.isEmpty(options)) ?
-            (lodashExports.map(options, (item, index) => {
-                return (React.createElement("div", { key: `${item.value}-${index}`, className: "checkbox-name" },
-                    React.createElement("input", { className: "checkbox-input", type: "checkbox", name: name, value: item.value, checked: fieldValue?.includes(item.value), onChange: formikProps.handleChange, disabled: disabled, ...nativeProps }),
-                    item.name));
-            })) : (React.createElement("div", { className: "checkbox-name" },
-            React.createElement("input", { className: "checkbox-input", type: "checkbox", name: name, checked: (booleanValue || false), onBlur: formikProps.handleBlur, onChange: formikProps.handleChange, disabled: disabled, ...nativeProps }),
+        React.createElement("div", { className: clsx("checkbox-container", isColumn ? "isColumn" : undefined) }, !lodashExports.isEmpty(options) ? (lodashExports.map(options, (item, index) => {
+            return (React.createElement("div", { key: `${item.value}-${index}`, className: "checkbox-name" },
+                React.createElement("input", { className: "checkbox-input", type: "checkbox", name: name, value: item.value, checked: fieldValue?.includes(item.value), onChange: formikProps.handleChange, disabled: disabled, ...nativeProps }),
+                item.name));
+        })) : (React.createElement("div", { className: "checkbox-name" },
+            React.createElement("input", { className: "checkbox-input", type: "checkbox", name: name, value: "false", checked: booleanValue || false, onBlur: formikProps.handleBlur, onChange: formikProps.handleChange, disabled: disabled, ...nativeProps }),
             booleanLabel))),
         React.createElement(HelperText, { fieldProps: fieldProps, formikProps: formikProps })));
 };

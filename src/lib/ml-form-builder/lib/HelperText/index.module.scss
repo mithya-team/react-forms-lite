@@ -1,11 +1,12 @@
-@import "../Styles/variables";
-@import "../Styles/mixins";
-@import "../Styles/extends";
+@import "../../Styles/extends";
+@import "../../Styles/mixins";
+@import "../../Styles/extends";
 
 .error-text {
     color: $errorTextColor;
     @extend %helper-error-text-size-opacity;
 }
+
 .helper-text {
     color: $helperTextColor;
     @extend %helper-error-text-size-opacity;

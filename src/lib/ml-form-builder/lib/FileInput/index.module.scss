@@ -1,33 +1,32 @@
-@import "../Styles/variables";
-@import "../Styles/mixins";
-@import "../Styles/extends";
+@import "../../Styles/extends";
+@import "../../Styles/mixins";
+@import "../../Styles/extends";
 
 .file-input-field {
-    @include componentField;
+  @include componentField;
 }
 
 .file-input-label {
-    @include componentLabel;
+  @include componentLabel;
 }
 
 .upload-btn-wrapper {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    width: 100%;
-  }
-  .upload-btn-wrapper input[type=file] {
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-  }
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+}
 
-  .btn {
-    @extend %btn;
-    padding: 5px 8px 5px 8px;
-    font-size: $helperErrorTextSize;
-    cursor: auto;
-  }
-  
-  
+.upload-btn-wrapper input[type=file] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.btn {
+  @extend %btn;
+  padding: 5px 8px 5px 8px;
+  font-size: $helperErrorTextSize;
+  cursor: auto;
+}

@@ -1,27 +1,31 @@
-@import "../Styles/variables";
-@import "../Styles/mixins";
-@import "../Styles/extends";
+@import "../../Styles/extends";
+@import "../../Styles/mixins";
+@import "../../Styles/extends";
 
-.phone-field{
+.phone-field {
     @include componentField;
 }
-.phone-field-label{
-    @include componentLabel;   
+
+.phone-field-label {
+    @include componentLabel;
 }
 
-.phone-field-container{
-    display: flex; 
+.phone-field-container {
+    display: flex;
 }
-.phone-field-box{
+
+.phone-field-box {
     width: auto
 }
-.phone-field-select{
+
+.phone-field-select {
     @extend %input-select-box;
     height: 30px;
 }
-.phone-field-input{
+
+.phone-field-input {
     @extend %input-select-box;
     margin-left: 5px;
-    height: 30px;;
+    height: 30px;
+    ;
 }
-
