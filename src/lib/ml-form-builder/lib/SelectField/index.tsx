@@ -1,10 +1,11 @@
 import React from "react";
-import { FieldItemProps, FieldProps, Option } from "../Types";
-import { isString} from "lodash";
+import { FieldItemProps, Option } from "../Types";
+import { isString } from "lodash";
 import "./index.module.scss";
 import { FormikProps } from "formik";
 import clsx from "clsx";
-import {HelperText} from "../HelperText";
+import { HelperText } from "../HelperText";
+import { FieldProps } from "../..";
 export interface SelectFProps extends FieldItemProps {
   options?: Option[];
   emptyItem?: string | boolean;
@@ -14,8 +15,10 @@ interface SelectFieldProps extends FieldProps {
 }
 
 export const SelectField: React.FC<SelectFieldProps> = (props) => {
-  const { formikProps = {} as FormikProps<unknown>, fieldProps = {} as SelectFProps } =
-    props;
+  const {
+    formikProps = {} as FormikProps<unknown>,
+    fieldProps = {} as SelectFProps,
+  } = props;
   const {
     name = "",
     label,
@@ -25,7 +28,7 @@ export const SelectField: React.FC<SelectFieldProps> = (props) => {
     classNames,
     disabled,
   } = fieldProps;
- 
+
   const emptyItemText = isString(emptyItem) ? emptyItem : "No option selected";
 
   const optionList = emptyItem
@@ -60,4 +63,3 @@ export const SelectField: React.FC<SelectFieldProps> = (props) => {
     </div>
   );
 };
-

@@ -1,10 +1,11 @@
 import React from "react";
-import { FieldItemProps, FieldProps } from "../Types";
+import { FieldItemProps } from "../Types";
 import "./index.module.scss";
 import { get } from "lodash";
 import { FormikProps } from "formik";
 import clsx from "clsx";
-import {HelperText} from "../HelperText";
+import { HelperText } from "../HelperText";
+import { FieldProps } from "../..";
 
 export interface SwitchFieldProps extends FieldItemProps {
   label?: string;
@@ -19,7 +20,7 @@ export const Switch: React.FC<SwitchProps> = (props) => {
     formikProps = {} as FormikProps<unknown>,
     fieldProps = {} as SwitchFieldProps,
   } = props;
-  const { label, name = "", classNames, nativeProps, disabled} = fieldProps;
+  const { label, name = "", classNames, nativeProps, disabled } = fieldProps;
 
   const fieldValue = get(formikProps, `values.${name}`);
   const handleOnChange = () => {
@@ -45,5 +46,3 @@ export const Switch: React.FC<SwitchProps> = (props) => {
     </div>
   );
 };
-
-

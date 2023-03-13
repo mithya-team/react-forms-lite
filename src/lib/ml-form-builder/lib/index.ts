@@ -10,3 +10,4 @@ export * from './PhoneField';
 export * from './Constants';
 export * from './PlainText';
 export * from './Types';
+export * from './TextArea';

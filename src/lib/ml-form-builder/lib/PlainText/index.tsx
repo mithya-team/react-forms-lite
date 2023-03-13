@@ -1,8 +1,9 @@
 import React from "react";
-import { FieldItemProps, FieldProps } from "../Types";
+import { FieldItemProps } from "../Types";
 import clsx from "clsx";
+import { FieldProps } from "../..";
 
-export interface PlainTextFieldProps extends FieldItemProps{
+export interface PlainTextFieldProps extends FieldItemProps {
   isTextHtmlString?: boolean;
   text: string | JSX.Element;
 }
@@ -14,13 +15,17 @@ export const PlainText: React.FC<PlainTextProps> = (props) => {
   const {
     isTextHtmlString = false,
     text = "",
-    classNames = "",
+    classNames,
     nativeProps,
   } = fieldProps;
   return (
     <div className={clsx("plain-text-field", classNames)}>
       {isTextHtmlString && typeof text === "string" ? (
-        <div className="plaintext-string" dangerouslySetInnerHTML={{ __html: text }}  {...nativeProps} />
+        <div
+          className="plaintext-string"
+          dangerouslySetInnerHTML={{ __html: text }}
+          {...nativeProps}
+        />
       ) : (
         <div className="plaintext">{text}</div>
       )}

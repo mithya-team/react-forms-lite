@@ -1,59 +1,62 @@
-// @import "../Styles/variables";
-// @import "../Styles/mixins";
-// @import "../Styles/extends";
-
-
-.submit-btn{
+.submit-btn {
   margin-top: 30px;
   font-size: 16px;
   background-color: blueviolet;
   border-radius: 4px;
-  color:white ;
+  color: white;
   padding: 14px 30px;
   text-align: center;
   cursor: pointer;
   margin-top: 5px;
   border: none;
-  }
-  
-  .loader {
+}
+
+.loader {
   height: 0;
   width: 0;
   border: 6px solid blueviolet;
   border-bottom-color: #ccc;
   padding: 10px;
-  border-radius:50%;
+  border-radius: 50%;
   animation: rotate 1s infinite linear;
   position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
-  }
+  transform: translate(-50%, -50%);
+}
 
 
 @keyframes rotate {
-  0%{transform:  rotate(0deg);}
-  100%{transform: rotate(360deg);}
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-.row{
+.row {
   display: flex;
   margin-top: 25px;
 }
-.action-center{
+
+.action-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.action-right{
+
+.action-right {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
 }
-.action-fullWidth{
+
+.action-fullWidth {
   width: 100%;
 }
 
-.action-right > .loader{
+.action-right>.loader {
   position: static;
 }

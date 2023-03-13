@@ -22033,7 +22033,7 @@ const getComponentConfig = (type) => {
 
 const HelperText = (props) => {
     const { fieldProps = {}, formikProps = {}, } = props;
-    const { name, helperText, classNames, } = fieldProps;
+    const { name, helperText, classNames } = fieldProps;
     const fieldError = getFieldError(name || "", formikProps);
     return (React.createElement("div", { className: clsx("text-error-helper-field", classNames, name) }, (fieldError || helperText) && (React.createElement("div", { className: "label-error" }, fieldError ? (React.createElement("span", { className: "error-text error" }, fieldError)) : (React.createElement("span", { className: "helper-text" },
         helperText,
@@ -22044,7 +22044,7 @@ const TextField = (props) => {
     const { fieldProps = {}, formikProps = {}, } = props;
     const { label, name = "", type = "", classNames, placeholder, nativeProps, disabled, } = fieldProps;
     const fieldValue = lodashExports.get(formikProps, `values.${name}`);
-    return (React.createElement("div", { className: clsx("text-field", classNames, name) },
+    return (React.createElement("div", { className: clsx("text-field", classNames) },
         label && React.createElement("label", { className: "text-label" }, label),
         React.createElement("div", { className: clsx("text-field-box") },
             React.createElement("input", { className: clsx("input-box"), type: type, placeholder: `${placeholder || ""}`, name: name, value: fieldValue || "", onBlur: formikProps.handleBlur, onChange: formikProps.handleChange, disabled: disabled, ...nativeProps })),
@@ -22052,7 +22052,7 @@ const TextField = (props) => {
 };
 
 const SelectField = (props) => {
-    const { formikProps = {}, fieldProps = {} } = props;
+    const { formikProps = {}, fieldProps = {}, } = props;
     const { name = "", label, options = [], emptyItem, nativeProps, classNames, disabled, } = fieldProps;
     const emptyItemText = lodashExports.isString(emptyItem) ? emptyItem : "No option selected";
     const optionList = emptyItem
@@ -22069,18 +22069,17 @@ const SelectField = (props) => {
 
 const CheckBox = (props) => {
     const { formikProps = {}, fieldProps = {}, } = props;
-    const { options = [], name = "", label, isColumn = false, classNames, nativeProps, disabled, booleanLabel } = fieldProps;
+    const { options = [], name = "", label, isColumn = false, classNames, nativeProps, disabled, booleanLabel, } = fieldProps;
     const fieldValue = lodashExports.get(formikProps, `values.${name}`) || [];
-    const booleanValue = lodashExports.get(formikProps, `values.${name}`);
+    const booleanValue = lodashExports.get(formikProps, `values.${name}`) || "";
     return (React.createElement("div", { className: clsx("checkbox-field ", classNames) },
         label && React.createElement("span", { className: "checkbox-label" }, label),
-        React.createElement("div", { className: clsx("checkbox-container", isColumn ? "isColumn" : undefined) }, (!lodashExports.isEmpty(options)) ?
-            (lodashExports.map(options, (item, index) => {
-                return (React.createElement("div", { key: `${item.value}-${index}`, className: "checkbox-name" },
-                    React.createElement("input", { className: "checkbox-input", type: "checkbox", name: name, value: item.value, checked: fieldValue?.includes(item.value), onChange: formikProps.handleChange, disabled: disabled, ...nativeProps }),
-                    item.name));
-            })) : (React.createElement("div", { className: "checkbox-name" },
-            React.createElement("input", { className: "checkbox-input", type: "checkbox", name: name, checked: (booleanValue || false), onBlur: formikProps.handleBlur, onChange: formikProps.handleChange, disabled: disabled, ...nativeProps }),
+        React.createElement("div", { className: clsx("checkbox-container", isColumn ? "isColumn" : undefined) }, !lodashExports.isEmpty(options) ? (lodashExports.map(options, (item, index) => {
+            return (React.createElement("div", { key: `${item.value}-${index}`, className: "checkbox-name" },
+                React.createElement("input", { className: "checkbox-input", type: "checkbox", name: name, value: item.value, checked: fieldValue?.includes(item.value), onChange: formikProps.handleChange, disabled: disabled, ...nativeProps }),
+                item.name));
+        })) : (React.createElement("div", { className: "checkbox-name" },
+            React.createElement("input", { className: "checkbox-input", type: "checkbox", name: name, value: "false", checked: booleanValue || false, onBlur: formikProps.handleBlur, onChange: formikProps.handleChange, disabled: disabled, ...nativeProps }),
             booleanLabel))),
         React.createElement(HelperText, { fieldProps: fieldProps, formikProps: formikProps })));
 };
@@ -22137,8 +22136,8 @@ const ArrayField = (props) => {
             arrayHelpers.remove(index);
     };
     return (React.createElement("div", { className: clsx("array-field", classNames) },
-        fieldArrayLabel && React.createElement("label", { className: "field-array-container-label" }, fieldArrayLabel),
-        label && (React.createElement("label", { className: "field-array-label" }, label)),
+        fieldArrayLabel && (React.createElement("label", { className: "field-array-container-label" }, fieldArrayLabel)),
+        label && React.createElement("label", { className: "field-array-label" }, label),
         React.createElement(FieldArray, { name: name, render: (arrayHelpers) => (React.createElement("div", { className: "field-array-child-box-container" },
                 (values || []).map((index) => (React.createElement("div", { key: `${fieldProps.name}-${index}`, className: "field-array-box" },
                     React.createElement("div", { className: "field-array-child" },
@@ -22471,7 +22470,7 @@ const PhoneField = (props) => {
         formikProps.setFieldValue(`${name}`, `${e.target.value}-${number[1] || ""}`);
         setCode(e.target.value);
     };
-    return (React.createElement("div", { className: clsx("phone-field", classNames, name) },
+    return (React.createElement("div", { className: clsx("phone-field", classNames) },
         React.createElement("label", { className: "phone-field-label", id: name },
             countryCodeLabel || "Country Code",
             " ",
@@ -22487,8 +22486,19 @@ const PhoneField = (props) => {
 
 const PlainText = (props) => {
     const { fieldProps = {} } = props;
-    const { isTextHtmlString = false, text = "", classNames = "", nativeProps, } = fieldProps;
+    const { isTextHtmlString = false, text = "", classNames, nativeProps, } = fieldProps;
     return (React.createElement("div", { className: clsx("plain-text-field", classNames) }, isTextHtmlString && typeof text === "string" ? (React.createElement("div", { className: "plaintext-string", dangerouslySetInnerHTML: { __html: text }, ...nativeProps })) : (React.createElement("div", { className: "plaintext" }, text))));
+};
+
+const TextArea = (props) => {
+    const { fieldProps = {}, formikProps = {}, } = props;
+    const { label, name = "", classNames, placeholder, nativeProps, disabled, } = fieldProps;
+    const fieldValue = lodashExports.get(formikProps, `values.${name}`);
+    return (React.createElement("div", { className: clsx("textarea-field", classNames) },
+        label && React.createElement("label", { className: "textarea-label" }, label),
+        React.createElement("div", { className: clsx("textarea-field-box") },
+            React.createElement("textarea", { className: clsx("textarea-box"), placeholder: `${placeholder || ""}`, name: name, value: fieldValue || "", onBlur: formikProps.handleBlur, onChange: formikProps.handleChange, disabled: disabled, ...nativeProps })),
+        React.createElement(HelperText, { fieldProps: fieldProps, formikProps: formikProps })));
 };
 
 const compare = (value1, operator, value2) => {
@@ -22557,11 +22567,6 @@ const getConditionalProps = (itemConfig, formikProps) => {
     }
 };
 
-// export interface FieldProps<T = any> {
-//   formikProps?: FormikProps<T>;
-//   fieldConfig?: FormConfig;
-//   isReadOnly?: boolean;
-// }
 const ComponentMapConfig = {};
 const attachField = (type, component, props) => {
     if (lodashExports.isArray(type)) {
@@ -22593,6 +22598,7 @@ attachField("array", React.createElement(ArrayField, null));
 attachField("password", React.createElement(TextField, null), { type: "password" });
 attachField("text", React.createElement(TextField, null), { type: "text" });
 attachField("plaintext", React.createElement(PlainText, null));
+attachField("textarea", React.createElement(TextArea, null));
 const BuildFormRow = (props) => {
     const { schema, rowId, formikProps = {}, settings = {
         horizontalSpacing: 10,
@@ -22719,6 +22725,7 @@ exports.Radio = Radio;
 exports.ReactForm = ReactForm;
 exports.SelectField = SelectField;
 exports.Switch = Switch;
+exports.TextArea = TextArea;
 exports.TextField = TextField;
 exports.attachField = attachField;
 exports.default = index;

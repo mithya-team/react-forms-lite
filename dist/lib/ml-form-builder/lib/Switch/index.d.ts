@@ -1,6 +1,7 @@
 import React from "react";
-import { FieldItemProps, FieldProps } from "../Types";
+import { FieldItemProps } from "../Types";
 import "./index.module.scss";
+import { FieldProps } from "../..";
 export interface SwitchFieldProps extends FieldItemProps {
     label?: string;
 }

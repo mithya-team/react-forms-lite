@@ -5,42 +5,34 @@ import clsx from "clsx";
 import { FieldItemProps } from "../Types";
 import { HelperText } from "../HelperText";
 import { FormikProps } from "formik";
-import { FieldProps } from "../../";
-
-export interface TextFieldProps extends FieldItemProps {
+import { FieldProps } from "../..";
+export interface TextAreaProps extends FieldItemProps {
   type?: string;
   placeholder?: string;
 }
-
 interface TextFieldsProps extends FieldProps {
-  fieldProps?: TextFieldProps;
+  fieldProps?: TextAreaProps;
 }
-
-export const TextField: React.FC<TextFieldsProps> = (props) => {
+export const TextArea: React.FC<TextFieldsProps> = (props) => {
   const {
-    fieldProps = {} as TextFieldProps,
+    fieldProps = {} as TextAreaProps,
     formikProps = {} as FormikProps<unknown>,
   } = props;
-
   const {
     label,
     name = "",
-    type = "",
     classNames,
     placeholder,
     nativeProps,
     disabled,
   } = fieldProps;
-
   const fieldValue = get(formikProps, `values.${name}`) as string;
-
   return (
-    <div className={clsx("text-field", classNames)}>
-      {label && <label className="text-label">{label}</label>}
-      <div className={clsx("text-field-box")}>
-        <input
-          className={clsx("input-box")}
-          type={type}
+    <div className={clsx("textarea-field", classNames)}>
+      {label && <label className="textarea-label">{label}</label>}
+      <div className={clsx("textarea-field-box")}>
+        <textarea
+          className={clsx("textarea-box")}
           placeholder={`${placeholder || ""}`}
           name={name}
           value={fieldValue || ""}
@@ -50,7 +42,6 @@ export const TextField: React.FC<TextFieldsProps> = (props) => {
           {...nativeProps}
         />
       </div>
-
       <HelperText fieldProps={fieldProps} formikProps={formikProps} />
     </div>
   );

@@ -1,17 +1,19 @@
-@import "../Styles/variables";
-@import "../Styles/mixins";
-@import "../Styles/extends";
+@import "../../Styles/extends";
+@import "../../Styles/mixins";
+@import "../../Styles/extends";
 
-.text-field{
-    @include componentField; 
+.text-field {
+    @include componentField;
 }
+
 .text-label {
     @include componentLabel;
 }
-.input-box{
+
+.input-box {
     @extend %input-select-box;
 }
+
 .text-field-box {
     width: 100%;
 }
-  

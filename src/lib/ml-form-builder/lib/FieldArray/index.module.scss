@@ -1,31 +1,33 @@
-@import "../Styles/variables";
-@import "../Styles/mixins";
-@import "../Styles/extends";
+@import "../../Styles/extends";
+@import "../../Styles/mixins";
+@import "../../Styles/extends";
 
-.array-field{
+.array-field {
     @include componentField;
     width: 100%;
 }
-.field-array-container-label{
+
+.field-array-container-label {
     @include componentLabel;
 }
+
 .field-array-label {
     @include componentLabel;
 }
 
-.field-array-box{
+.field-array-box {
     display: flex;
 }
 
-.array-remove-icon{
+.array-remove-icon {
     @extend %btn;
-    background-color:rgb(222, 218, 218);
+    background-color: rgb(222, 218, 218);
     height: 30px;
     margin: $labelTextSize 0px 0px 10px;
     padding: 0px 14px 0px 14px;
 }
 
-.array-add-icon{
+.array-add-icon {
     @extend %btn;
     // background-color: #66bf69;
     display: flex;

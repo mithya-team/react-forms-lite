@@ -1,8 +1,4 @@
 /// <reference types="react" />
-import { FormikProps } from "formik";
-export interface FieldProps {
-    formikProps?: FormikProps<any>;
-}
 export interface FieldItemProps {
     name?: string;
     id?: string;

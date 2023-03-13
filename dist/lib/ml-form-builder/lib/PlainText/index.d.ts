@@ -1,5 +1,6 @@
 import React from "react";
-import { FieldItemProps, FieldProps } from "../Types";
+import { FieldItemProps } from "../Types";
+import { FieldProps } from "../..";
 export interface PlainTextFieldProps extends FieldItemProps {
     isTextHtmlString?: boolean;
     text: string | JSX.Element;

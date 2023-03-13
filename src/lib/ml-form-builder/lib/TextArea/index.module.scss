@@ -2,18 +2,18 @@
 @import "../../Styles/mixins";
 @import "../../Styles/extends";
 
-.radio-field {
+.textarea-field {
     @include componentField;
 }
 
-.radio-label {
+.textarea-label {
     @include componentLabel;
 }
 
-.isColumn {
-    @include isColumn;
+.textarea-box {
+    @extend %textarea-box;
 }
 
-.radio-name {
-    margin: 3px 3px 0px 0px;
+.textarea-field-box {
+    width: 100%;
 }

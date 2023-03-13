@@ -1,14 +1,11 @@
 import React from "react";
-import {
-  processFilesWithCallback,
-  ReadAsType,
-  setValue,
-} from "../../Utils";
+import { processFilesWithCallback, ReadAsType, setValue } from "../../Utils";
 import clsx from "clsx";
-import { FieldItemProps, FieldProps } from "../Types";
+import { FieldItemProps } from "../Types";
 import "./index.module.scss";
 import { FormikProps } from "formik";
-import {HelperText} from "../HelperText";
+import { HelperText } from "../HelperText";
+import { FieldProps } from "../..";
 
 export interface TFile {
   name: string;
@@ -56,7 +53,6 @@ export const FileInput: React.FC<FileInputProps> = (props) => {
     classNames,
   } = fieldProps;
 
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files || new FileList();
     if (onFilesChange) {
@@ -84,24 +80,24 @@ export const FileInput: React.FC<FileInputProps> = (props) => {
         </label>
       )}
 
-     <div className="upload-btn-wrapper">
-     <input
-        className="file-input-box"
-        type="file"
-        onChange={handleChange}
-        id={name}
-        disabled={disabled}
-        multiple={multiple}
-        title={disableDefaultTooltip ? " " : undefined}
-        accept={accept}
-        {...nativeProps}
-      ></input>
-      <button className="btn" type="button">Upload</button>
-     </div>
+      <div className="upload-btn-wrapper">
+        <input
+          className="file-input-box"
+          type="file"
+          onChange={handleChange}
+          id={name}
+          disabled={disabled}
+          multiple={multiple}
+          title={disableDefaultTooltip ? " " : undefined}
+          accept={accept}
+          {...nativeProps}
+        ></input>
+        <button className="btn" type="button">
+          Upload
+        </button>
+      </div>
 
       <HelperText fieldProps={fieldProps} formikProps={formikProps} />
-    
     </div>
   );
 };
-

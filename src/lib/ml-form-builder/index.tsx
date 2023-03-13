@@ -3,17 +3,18 @@ import { FormikProps } from "formik";
 import { get, isArray, isFunction, map, uniqueId } from "lodash";
 import React, { useEffect, useState } from "react";
 import {
-  CheckBox ,
-  Radio, 
-  SelectField, 
-  Switch, 
-  FileInput, 
-  PhoneField, 
-  ArrayField, 
-  TextField, 
+  CheckBox,
+  Radio,
+  SelectField,
+  Switch,
+  FileInput,
+  PhoneField,
+  ArrayField,
+  TextField,
   PlainText,
+  TextArea,
 } from "./lib";
-import { FieldItemProps, FieldProps, } from "./lib/Types";
+import { FieldItemProps } from "./lib/Types";
 import "./index.module.scss";
 
 import {
@@ -71,11 +72,11 @@ export interface BuilderProps<T = any> {
   isInProgress?: boolean;
 }
 
-// export interface FieldProps<T = any> {
-//   formikProps?: FormikProps<T>;
-//   fieldConfig?: FormConfig;
-//   isReadOnly?: boolean;
-// }
+export interface FieldProps<T = any> {
+  formikProps?: FormikProps<T>;
+  fieldConfig?: FormConfig;
+  isReadOnly?: boolean;
+}
 
 const ComponentMapConfig: {
   [key: string]: { component: JSX.Element; props?: object };
@@ -119,7 +120,8 @@ attachField("phone", <PhoneField />);
 attachField("array", <ArrayField />);
 attachField("password", <TextField />, { type: "password" });
 attachField("text", <TextField />, { type: "text" });
-attachField("plaintext",<PlainText/>);
+attachField("plaintext", <PlainText />);
+attachField("textarea", <TextArea />);
 
 export const BuildFormRow: React.FC<FormRowProps> = (props) => {
   const {
@@ -261,13 +263,12 @@ export const MLFormAction: React.FC<
           formId,
         })
       ) : (
-        
         <div>
           {formikProps.isSubmitting ? (
             <div className="loader"></div>
           ) : (
             <button
-              className={clsx( "submit-btn", layoutClassName )}
+              className={clsx("submit-btn", layoutClassName)}
               type="submit"
               disabled={formikProps.isSubmitting}
             >

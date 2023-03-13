@@ -1,7 +1,7 @@
-@import "../Styles/variables";
-@import "../Styles/mixins";
-@import "../Styles/extends";
+@import "../../Styles/extends";
+@import "../../Styles/mixins";
+@import "../../Styles/extends";
 
-.plain-text-field{
+.plain-text-field {
     @include componentField;
 }

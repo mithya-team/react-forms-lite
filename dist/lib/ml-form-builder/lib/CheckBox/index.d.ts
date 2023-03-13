@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.module.scss";
-import { FieldItemProps, FieldProps, Option } from "../Types";
+import { FieldItemProps, Option } from "../Types";
+import { FieldProps } from "../..";
 export interface CheckboxFieldProps extends FieldItemProps {
     options?: Option[];
     isColumn?: boolean;

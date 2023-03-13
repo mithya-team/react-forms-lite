@@ -2,9 +2,10 @@ import { get } from "lodash";
 import React from "react";
 import "./index.module.scss";
 import clsx from "clsx";
-import { FieldItemProps, FieldProps , Option} from "../Types";
+import { FieldItemProps, Option } from "../Types";
 import { FormikProps } from "formik";
-import {HelperText} from "../HelperText";
+import { HelperText } from "../HelperText";
+import { FieldProps } from "../..";
 
 export interface RadioFieldProps extends FieldItemProps {
   options?: Option[];
@@ -28,13 +29,15 @@ export const Radio: React.FC<RadioProps> = (props) => {
     nativeProps,
     disabled,
   } = fieldProps;
-  
+
   const fieldValue: string = get(formikProps, `values.${name}`) || "";
 
   return (
     <div className={clsx("radio-field", classNames)}>
       {label && <span className="radio-label">{label}</span>}
-      <div className={clsx("radio-container", isColumn ? "isColumn" : undefined)}>
+      <div
+        className={clsx("radio-container", isColumn ? "isColumn" : undefined)}
+      >
         {options.map((it) => (
           <span key={it.value} className="radio-name">
             <input
@@ -55,4 +58,3 @@ export const Radio: React.FC<RadioProps> = (props) => {
     </div>
   );
 };
-
