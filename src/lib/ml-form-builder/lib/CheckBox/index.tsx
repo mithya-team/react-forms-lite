@@ -1,6 +1,9 @@
 import React from "react";
 import "./index.module.scss";
-import { get, isEmpty, map } from "lodash";
+import get from "lodash/get";
+import isEmpty from "lodash/isEmpty";
+import map from "lodash/map";
+
 import clsx from "clsx";
 import { FieldItemProps, Option } from "../Types";
 import { FormikProps } from "formik";
@@ -38,7 +41,11 @@ export const CheckBox: React.FC<CheckBoxProps> = (props) => {
 
   return (
     <div className={clsx("checkbox-field ", classNames)}>
-      {label && <span className="checkbox-label">{label}</span>}
+      {label && (
+        <label className="checkbox-label" htmlFor={name}>
+          {label}
+        </label>
+      )}
       <div
         className={clsx(
           "checkbox-container",
@@ -53,6 +60,7 @@ export const CheckBox: React.FC<CheckBoxProps> = (props) => {
                   className="checkbox-input"
                   type="checkbox"
                   name={name}
+                  id={name}
                   value={item.value}
                   checked={fieldValue?.includes(item.value)}
                   onChange={formikProps.handleChange}

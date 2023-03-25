@@ -1,5 +1,8 @@
 import * as React from "react";
-import { map, isString, get } from "lodash";
+import get from "lodash/get";
+import isString from "lodash/isString";
+import map from "lodash/map";
+
 import { FormikValues } from "formik";
 import { TFile } from "./lib/FileInput";
 

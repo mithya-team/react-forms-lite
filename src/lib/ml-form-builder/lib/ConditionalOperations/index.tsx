@@ -1,5 +1,7 @@
 import { FormikValues } from "formik";
-import { get, forEach, isEmpty } from "lodash";
+import get from "lodash/get";
+import forEach from "lodash/forEach";
+import isEmpty from "lodash/isEmpty";
 import { FormConfig } from "../../index";
 
 export type TFieldConditions = {
