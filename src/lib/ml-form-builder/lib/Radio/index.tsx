@@ -34,11 +34,7 @@ export const Radio: React.FC<RadioProps> = (props) => {
 
   return (
     <div className={clsx("radio-field", classNames)}>
-      {label && (
-        <label className="radio-label" htmlFor={name}>
-          {label}
-        </label>
-      )}
+      {label && <label className="radio-label">{label}</label>}
       <div
         className={clsx("radio-container", isColumn ? "isColumn" : undefined)}
       >
@@ -55,7 +51,7 @@ export const Radio: React.FC<RadioProps> = (props) => {
               disabled={disabled}
               {...nativeProps}
             />
-            {it.name}
+            <label htmlFor={name}> {it.name}</label>
           </span>
         ))}
       </div>
