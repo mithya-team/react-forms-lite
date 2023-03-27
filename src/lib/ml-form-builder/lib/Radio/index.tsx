@@ -1,4 +1,4 @@
-import { get } from "lodash";
+import get from "lodash/get";
 import React from "react";
 import "./index.module.scss";
 import clsx from "clsx";
@@ -34,7 +34,11 @@ export const Radio: React.FC<RadioProps> = (props) => {
 
   return (
     <div className={clsx("radio-field", classNames)}>
-      {label && <span className="radio-label">{label}</span>}
+      {label && (
+        <label className="radio-label" htmlFor={name}>
+          {label}
+        </label>
+      )}
       <div
         className={clsx("radio-container", isColumn ? "isColumn" : undefined)}
       >
@@ -43,6 +47,7 @@ export const Radio: React.FC<RadioProps> = (props) => {
             <input
               className="radio-input"
               type="radio"
+              id={name}
               name={name}
               value={it.value}
               checked={fieldValue === it.value}

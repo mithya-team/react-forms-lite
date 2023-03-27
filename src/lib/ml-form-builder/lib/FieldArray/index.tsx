@@ -1,8 +1,7 @@
 import React from "react";
-import { get } from "lodash";
+import get from "lodash/get";
 import "./index.module.scss";
 import { FieldArray, FieldArrayRenderProps, FormikProps } from "formik";
-// import { FieldProps } from "../../index";
 import { getComponentConfig } from "../../Utils";
 import clsx from "clsx";
 import { FieldItemProps } from "../Types";
@@ -76,7 +75,9 @@ export const ArrayField: React.FC<FieldsArrayProps> = (props) => {
   return (
     <div className={clsx("array-field", classNames)}>
       {fieldArrayLabel && (
-        <label className="field-array-container-label">{fieldArrayLabel}</label>
+        <label className="field-array-container-label" htmlFor={name}>
+          {fieldArrayLabel}
+        </label>
       )}
 
       {label && <label className="field-array-label">{label}</label>}

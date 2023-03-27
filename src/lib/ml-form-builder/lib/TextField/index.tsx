@@ -1,4 +1,4 @@
-import { get } from "lodash";
+import get from "lodash/get";
 import React from "react";
 import "./index.module.scss";
 import clsx from "clsx";
@@ -36,11 +36,16 @@ export const TextField: React.FC<TextFieldsProps> = (props) => {
 
   return (
     <div className={clsx("text-field", classNames)}>
-      {label && <label className="text-label">{label}</label>}
+      {label && (
+        <label className="text-label" htmlFor={name}>
+          {label}
+        </label>
+      )}
       <div className={clsx("text-field-box")}>
         <input
           className={clsx("input-box")}
           type={type}
+          id={name}
           placeholder={`${placeholder || ""}`}
           name={name}
           value={fieldValue || ""}

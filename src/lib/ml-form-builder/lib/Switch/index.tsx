@@ -1,7 +1,7 @@
 import React from "react";
 import { FieldItemProps } from "../Types";
 import "./index.module.scss";
-import { get } from "lodash";
+import get from "lodash/get";
 import { FormikProps } from "formik";
 import clsx from "clsx";
 import { HelperText } from "../HelperText";
@@ -28,11 +28,16 @@ export const Switch: React.FC<SwitchProps> = (props) => {
   };
   return (
     <div className={clsx("switch-field", classNames)}>
-      {label && <span className="switch-label">{label}</span>}
+      {label && (
+        <label className="switch-label" htmlFor={name}>
+          {label}
+        </label>
+      )}
       <label className="switch-container">
         <input
           className="slider"
           type="checkbox"
+          id={name}
           checked={!!fieldValue}
           value={fieldValue}
           onChange={handleOnChange}

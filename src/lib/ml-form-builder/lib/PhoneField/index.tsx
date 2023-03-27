@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FieldItemProps } from "../Types";
 import "./index.module.scss";
 import { CountryCodeFormat, COUNTRY_LIST } from "../Constants/CountryList";
-import { get } from "lodash";
+import get from "lodash/get";
 import { FormikProps } from "formik";
 import clsx from "clsx";
 import { HelperText } from "../HelperText";
@@ -77,7 +77,7 @@ export const PhoneField: React.FC<PhoneFieldsProps> = (props) => {
 
   return (
     <div className={clsx("phone-field", classNames)}>
-      <label className="phone-field-label" id={name}>
+      <label className="phone-field-label" htmlFor={name} id={name}>
         {countryCodeLabel || "Country Code"} {label}
       </label>
 

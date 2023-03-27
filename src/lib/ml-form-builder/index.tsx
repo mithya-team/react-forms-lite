@@ -1,6 +1,10 @@
 import clsx from "clsx";
 import { FormikProps } from "formik";
-import { get, isArray, isFunction, map, uniqueId } from "lodash";
+import get from "lodash/get";
+import map from "lodash/map";
+import isArray from "lodash/isArray";
+import isFunction from "lodash/isFunction";
+import uniqueId from "lodash/uniqueId";
 import React, { useEffect, useState } from "react";
 import {
   CheckBox,

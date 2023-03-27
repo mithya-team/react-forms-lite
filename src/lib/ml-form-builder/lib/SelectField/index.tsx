@@ -1,6 +1,6 @@
 import React from "react";
 import { FieldItemProps, Option } from "../Types";
-import { isString } from "lodash";
+import isString from "lodash/isString";
 import "./index.module.scss";
 import { FormikProps } from "formik";
 import clsx from "clsx";
