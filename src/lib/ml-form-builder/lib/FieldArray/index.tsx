@@ -75,9 +75,7 @@ export const ArrayField: React.FC<FieldsArrayProps> = (props) => {
   return (
     <div className={clsx("array-field", classNames)}>
       {fieldArrayLabel && (
-        <label className="field-array-container-label" htmlFor={name}>
-          {fieldArrayLabel}
-        </label>
+        <label className="field-array-container-label">{fieldArrayLabel}</label>
       )}
 
       {label && <label className="field-array-label">{label}</label>}

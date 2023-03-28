@@ -37,11 +37,7 @@ export const SelectField: React.FC<SelectFieldProps> = (props) => {
 
   return (
     <div className={clsx("select-field", classNames)}>
-      {label && (
-        <label htmlFor={name} className="select-field-label">
-          {label}
-        </label>
-      )}
+      {label && <label className="select-field-label">{label}</label>}
       <div className="select-container">
         <select
           id={name}

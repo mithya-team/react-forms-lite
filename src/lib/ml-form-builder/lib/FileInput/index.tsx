@@ -74,11 +74,7 @@ export const FileInput: React.FC<FileInputProps> = (props) => {
 
   return (
     <div className={clsx("file-input-field", classNames)}>
-      {label && (
-        <label htmlFor={name} className="file-input-label">
-          {label}
-        </label>
-      )}
+      {label && <label className="file-input-label">{label}</label>}
 
       <div className="upload-btn-wrapper">
         <input
