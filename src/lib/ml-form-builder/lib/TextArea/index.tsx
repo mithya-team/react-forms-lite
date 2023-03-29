@@ -29,11 +29,7 @@ export const TextArea: React.FC<TextFieldsProps> = (props) => {
   const fieldValue = get(formikProps, `values.${name}`) as string;
   return (
     <div className={clsx("textarea-field", classNames)}>
-      {label && (
-        <label className="textarea-label" htmlFor={name}>
-          {label}
-        </label>
-      )}
+      {label && <label className="textarea-label">{label}</label>}
       <div className={clsx("textarea-field-box")}>
         <textarea
           className={clsx("textarea-box")}

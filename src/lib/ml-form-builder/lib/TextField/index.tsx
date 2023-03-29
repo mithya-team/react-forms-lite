@@ -36,11 +36,7 @@ export const TextField: React.FC<TextFieldsProps> = (props) => {
 
   return (
     <div className={clsx("text-field", classNames)}>
-      {label && (
-        <label className="text-label" htmlFor={name}>
-          {label}
-        </label>
-      )}
+      {label && <label className="text-label">{label}</label>}
       <div className={clsx("text-field-box")}>
         <input
           className={clsx("input-box")}

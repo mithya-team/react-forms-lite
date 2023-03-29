@@ -28,11 +28,7 @@ export const Switch: React.FC<SwitchProps> = (props) => {
   };
   return (
     <div className={clsx("switch-field", classNames)}>
-      {label && (
-        <label className="switch-label" htmlFor={name}>
-          {label}
-        </label>
-      )}
+      {label && <label className="switch-label">{label}</label>}
       <label className="switch-container">
         <input
           className="slider"

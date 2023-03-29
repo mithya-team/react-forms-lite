@@ -41,11 +41,7 @@ export const CheckBox: React.FC<CheckBoxProps> = (props) => {
 
   return (
     <div className={clsx("checkbox-field ", classNames)}>
-      {label && (
-        <label className="checkbox-label" htmlFor={name}>
-          {label}
-        </label>
-      )}
+      {label && <label className="checkbox-label">{label}</label>}
       <div
         className={clsx(
           "checkbox-container",
@@ -67,7 +63,7 @@ export const CheckBox: React.FC<CheckBoxProps> = (props) => {
                   disabled={disabled}
                   {...nativeProps}
                 />
-                {item.name}
+                <label htmlFor={name}>{item.name}</label>
               </div>
             );
           })
