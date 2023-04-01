@@ -123,6 +123,7 @@ attachField("file", <FileInput />);
 attachField("phone", <PhoneField />);
 attachField("array", <ArrayField />);
 attachField("password", <TextField />, { type: "password" });
+attachField("range", <TextField />, { type: "range" });
 attachField("text", <TextField />, { type: "text" });
 attachField("plaintext", <PlainText />);
 attachField("textarea", <TextArea />);
