@@ -8392,11 +8392,16 @@ const Switch = (props) => {
 const Radio = (props) => {
     const { formikProps = {}, fieldProps = {}, } = props;
     const { options = [], name = "", label, isColumn, classNames, nativeProps, disabled, } = fieldProps;
-    const fieldValue = get_1(formikProps, `values.${name}`) || "";
+    const [checkedValue, setCheckedValue] = useState(options.find((option) => option.defaultChecked)?.value || "");
+    const handleRadioChange = (event) => {
+        setCheckedValue(event.target.value);
+        formikProps.handleChange(event);
+    };
+    const fieldValue = get_1(formikProps, `values.${name}`) || checkedValue;
     return (React.createElement("div", { className: clsx("radio-field", classNames) },
         label && React.createElement("label", { className: "radio-label" }, label),
         React.createElement("div", { className: clsx("radio-container", isColumn ? "isColumn" : undefined) }, options.map((item) => (React.createElement("span", { key: item.value, className: "radio-name" },
-            React.createElement("input", { className: "radio-input", type: "radio", name: name, id: `${item.name}-${item.value}`, value: item.value, checked: fieldValue === item.value, onChange: formikProps.handleChange, disabled: disabled, ...nativeProps }),
+            React.createElement("input", { className: "radio-input", type: "radio", name: name, id: `${item.name}-${item.value}`, value: item.value, checked: fieldValue === item.value, onChange: handleRadioChange, disabled: disabled, ...nativeProps }),
             React.createElement("label", { htmlFor: `${item.name}-${item.value}` },
                 " ",
                 item.name))))),
