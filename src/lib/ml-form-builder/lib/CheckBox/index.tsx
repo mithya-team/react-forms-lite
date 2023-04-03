@@ -56,14 +56,16 @@ export const CheckBox: React.FC<CheckBoxProps> = (props) => {
                   className="checkbox-input"
                   type="checkbox"
                   name={item.name}
-                  id={`${item.name}-${index}`}
+                  id={`${item.name}-${item.value}`}
                   value={item.value}
                   checked={fieldValue?.includes(item.value)}
                   onChange={formikProps.handleChange}
                   disabled={disabled}
                   {...nativeProps}
                 />
-                <label htmlFor={`${item.name}-${index}`}>{item.name}</label>
+                <label htmlFor={`${item.name}-${item.value}`}>
+                  {item.name}
+                </label>
               </div>
             );
           })
