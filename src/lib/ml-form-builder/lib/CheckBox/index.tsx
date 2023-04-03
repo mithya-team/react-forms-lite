@@ -55,15 +55,15 @@ export const CheckBox: React.FC<CheckBoxProps> = (props) => {
                 <input
                   className="checkbox-input"
                   type="checkbox"
-                  name={name}
-                  id={name}
+                  name={item.name}
+                  id={item.name}
                   value={item.value}
                   checked={fieldValue?.includes(item.value)}
                   onChange={formikProps.handleChange}
                   disabled={disabled}
                   {...nativeProps}
                 />
-                <label htmlFor={name}>{item.name}</label>
+                <label htmlFor={item.name}>{item.name}</label>
               </div>
             );
           })
@@ -73,6 +73,7 @@ export const CheckBox: React.FC<CheckBoxProps> = (props) => {
               className="checkbox-input"
               type="checkbox"
               name={name}
+              id={booleanLabel}
               value="false"
               checked={booleanValue || false}
               onBlur={formikProps.handleBlur}
@@ -80,7 +81,7 @@ export const CheckBox: React.FC<CheckBoxProps> = (props) => {
               disabled={disabled}
               {...nativeProps}
             />
-            {booleanLabel}
+            <label htmlFor={booleanLabel}> {booleanLabel}</label>
           </div>
         )}
       </div>
