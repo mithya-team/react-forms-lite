@@ -57,8 +57,8 @@ export const CheckBox: React.FC<CheckBoxProps> = (props) => {
                   <input
                     className="checkbox-input"
                     type="checkbox"
-                    name={name}
-                    id={name}
+                    name={`${name}-${item}`}
+                    id={`${name}-${item}`}
                     value={item.value}
                     checked={fieldValue?.includes(item.value)}
                     onChange={formikProps.handleChange}
@@ -75,7 +75,7 @@ export const CheckBox: React.FC<CheckBoxProps> = (props) => {
               <input
                 className="checkbox-input"
                 type="checkbox"
-                name={name}
+                name={`${name}`}
                 id={name}
                 value="false"
                 checked={booleanValue || false}

@@ -38,17 +38,17 @@ export const Radio: React.FC<RadioProps> = (props) => {
       <div
         className={clsx("radio-container", isColumn ? "isColumn" : undefined)}
       >
-        {options.map((it) => (
-          <span key={it.value} className="radio-name">
+        {options.map((item) => (
+          <span key={item.value} className="radio-name">
             <label htmlFor={name}>
-              {it.name}{" "}
+              {item.name}
               <input
                 className="radio-input"
                 type="radio"
-                id={name}
-                name={name}
-                value={it.value}
-                checked={fieldValue === it.value}
+                name={`${name}-${item}`} // Append the ID to the name attribute
+                id={`${name}-${item}`}
+                value={item.value}
+                checked={fieldValue === item.value}
                 onChange={formikProps.handleChange}
                 disabled={disabled}
                 {...nativeProps}
