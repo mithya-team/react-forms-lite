@@ -43,7 +43,7 @@ export const Radio: React.FC<RadioProps> = (props) => {
             <input
               className="radio-input"
               type="radio"
-              name={item.name}
+              name={name}
               id={`${item.name}-${item.value}`}
               value={item.value}
               checked={fieldValue === item.value}

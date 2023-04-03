@@ -55,7 +55,7 @@ export const CheckBox: React.FC<CheckBoxProps> = (props) => {
                 <input
                   className="checkbox-input"
                   type="checkbox"
-                  name={item.name}
+                  name={name}
                   id={`${item.name}-${item.value}`}
                   value={item.value}
                   checked={fieldValue?.includes(item.value)}
