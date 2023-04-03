@@ -40,18 +40,20 @@ export const Radio: React.FC<RadioProps> = (props) => {
       >
         {options.map((it) => (
           <span key={it.value} className="radio-name">
-            <input
-              className="radio-input"
-              type="radio"
-              id={name}
-              name={name}
-              value={it.value}
-              checked={fieldValue === it.value}
-              onChange={formikProps.handleChange}
-              disabled={disabled}
-              {...nativeProps}
-            />
-            <label htmlFor={name}> {it.name}</label>
+            <label htmlFor={name}>
+              {it.name}{" "}
+              <input
+                className="radio-input"
+                type="radio"
+                id={name}
+                name={name}
+                value={it.value}
+                checked={fieldValue === it.value}
+                onChange={formikProps.handleChange}
+                disabled={disabled}
+                {...nativeProps}
+              />
+            </label>
           </span>
         ))}
       </div>

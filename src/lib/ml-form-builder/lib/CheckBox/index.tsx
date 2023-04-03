@@ -52,35 +52,40 @@ export const CheckBox: React.FC<CheckBoxProps> = (props) => {
           map(options, (item: any, index) => {
             return (
               <div key={`${item.value}-${index}`} className="checkbox-name">
-                <input
-                  className="checkbox-input"
-                  type="checkbox"
-                  name={name}
-                  id={name}
-                  value={item.value}
-                  checked={fieldValue?.includes(item.value)}
-                  onChange={formikProps.handleChange}
-                  disabled={disabled}
-                  {...nativeProps}
-                />
-                <label htmlFor={name}>{item.name}</label>
+                <label htmlFor={name}>
+                  {item.name}
+                  <input
+                    className="checkbox-input"
+                    type="checkbox"
+                    name={name}
+                    id={name}
+                    value={item.value}
+                    checked={fieldValue?.includes(item.value)}
+                    onChange={formikProps.handleChange}
+                    disabled={disabled}
+                    {...nativeProps}
+                  />
+                </label>
               </div>
             );
           })
         ) : (
           <div className="checkbox-name">
-            <input
-              className="checkbox-input"
-              type="checkbox"
-              name={name}
-              value="false"
-              checked={booleanValue || false}
-              onBlur={formikProps.handleBlur}
-              onChange={formikProps.handleChange}
-              disabled={disabled}
-              {...nativeProps}
-            />
-            {booleanLabel}
+            <label htmlFor={name}>
+              <input
+                className="checkbox-input"
+                type="checkbox"
+                name={name}
+                id={name}
+                value="false"
+                checked={booleanValue || false}
+                onBlur={formikProps.handleBlur}
+                onChange={formikProps.handleChange}
+                disabled={disabled}
+                {...nativeProps}
+              />
+              {booleanLabel}
+            </label>
           </div>
         )}
       </div>
