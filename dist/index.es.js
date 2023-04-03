@@ -8364,13 +8364,11 @@ const CheckBox = (props) => {
         label && React.createElement("label", { className: "checkbox-label" }, label),
         React.createElement("div", { className: clsx("checkbox-container", isColumn ? "isColumn" : undefined) }, !isEmpty_1(options) ? (map_1(options, (item, index) => {
             return (React.createElement("div", { key: `${item.value}-${index}`, className: "checkbox-name" },
-                React.createElement("label", { htmlFor: name },
-                    item.name,
-                    React.createElement("input", { className: "checkbox-input", type: "checkbox", name: `${name}-${item}`, id: `${name}-${item}`, value: item.value, checked: fieldValue?.includes(item.value), onChange: formikProps.handleChange, disabled: disabled, ...nativeProps }))));
+                React.createElement("input", { className: "checkbox-input", type: "checkbox", name: `${name}-${index}`, id: `${name}-${index}`, value: item.value, checked: fieldValue?.includes(item.value), onChange: formikProps.handleChange, disabled: disabled, ...nativeProps }),
+                React.createElement("label", { htmlFor: `${name}-${index}` }, item.name)));
         })) : (React.createElement("div", { className: "checkbox-name" },
-            React.createElement("label", { htmlFor: name },
-                React.createElement("input", { className: "checkbox-input", type: "checkbox", name: `${name}`, id: name, value: "false", checked: booleanValue || false, onBlur: formikProps.handleBlur, onChange: formikProps.handleChange, disabled: disabled, ...nativeProps }),
-                booleanLabel)))),
+            React.createElement("input", { className: "checkbox-input", type: "checkbox", name: name, id: booleanValue, value: "false", checked: booleanValue || false, onBlur: formikProps.handleBlur, onChange: formikProps.handleChange, disabled: disabled, ...nativeProps }),
+            React.createElement("label", { htmlFor: booleanValue }, booleanLabel)))),
         React.createElement(HelperText, { fieldProps: fieldProps, formikProps: formikProps })));
 };
 
@@ -8395,10 +8393,9 @@ const Radio = (props) => {
     const fieldValue = get_1(formikProps, `values.${name}`) || "";
     return (React.createElement("div", { className: clsx("radio-field", classNames) },
         label && React.createElement("label", { className: "radio-label" }, label),
-        React.createElement("div", { className: clsx("radio-container", isColumn ? "isColumn" : undefined) }, options.map((item) => (React.createElement("span", { key: item.value, className: "radio-name" },
-            React.createElement("label", { htmlFor: name },
-                item.name,
-                React.createElement("input", { className: "radio-input", type: "radio", name: `${name}-${item}`, id: `${name}-${item}`, value: item.value, checked: fieldValue === item.value, onChange: formikProps.handleChange, disabled: disabled, ...nativeProps })))))),
+        React.createElement("div", { className: clsx("radio-container", isColumn ? "isColumn" : undefined) }, options.map((item, index) => (React.createElement("span", { key: item.value, className: "radio-name" },
+            React.createElement("input", { className: "radio-input", type: "radio", name: `${name}-${index}`, id: `${name}-${index}`, value: item.value, checked: fieldValue === item.value, onChange: formikProps.handleChange, disabled: disabled, ...nativeProps }),
+            React.createElement("label", { htmlFor: `${name}-${index}` }, item.name))))),
         React.createElement(HelperText, { fieldProps: fieldProps, formikProps: formikProps })));
 };
 

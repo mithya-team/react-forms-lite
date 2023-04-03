@@ -52,40 +52,36 @@ export const CheckBox: React.FC<CheckBoxProps> = (props) => {
           map(options, (item: any, index) => {
             return (
               <div key={`${item.value}-${index}`} className="checkbox-name">
-                <label htmlFor={name}>
-                  {item.name}
-                  <input
-                    className="checkbox-input"
-                    type="checkbox"
-                    name={`${name}-${item}`}
-                    id={`${name}-${item}`}
-                    value={item.value}
-                    checked={fieldValue?.includes(item.value)}
-                    onChange={formikProps.handleChange}
-                    disabled={disabled}
-                    {...nativeProps}
-                  />
-                </label>
+                <input
+                  className="checkbox-input"
+                  type="checkbox"
+                  name={`${name}-${index}`}
+                  id={`${name}-${index}`}
+                  value={item.value}
+                  checked={fieldValue?.includes(item.value)}
+                  onChange={formikProps.handleChange}
+                  disabled={disabled}
+                  {...nativeProps}
+                />
+                <label htmlFor={`${name}-${index}`}>{item.name}</label>
               </div>
             );
           })
         ) : (
           <div className="checkbox-name">
-            <label htmlFor={name}>
-              <input
-                className="checkbox-input"
-                type="checkbox"
-                name={`${name}`}
-                id={name}
-                value="false"
-                checked={booleanValue || false}
-                onBlur={formikProps.handleBlur}
-                onChange={formikProps.handleChange}
-                disabled={disabled}
-                {...nativeProps}
-              />
-              {booleanLabel}
-            </label>
+            <input
+              className="checkbox-input"
+              type="checkbox"
+              name={name}
+              id={booleanValue}
+              value="false"
+              checked={booleanValue || false}
+              onBlur={formikProps.handleBlur}
+              onChange={formikProps.handleChange}
+              disabled={disabled}
+              {...nativeProps}
+            />
+            <label htmlFor={booleanValue}>{booleanLabel}</label>
           </div>
         )}
       </div>
