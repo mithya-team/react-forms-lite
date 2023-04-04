@@ -1,61 +1,42 @@
-.submit-btn {
-  margin-top: 30px;
+.checkbox-label {
   font-size: 16px;
-  background-color: blueviolet;
-  border-radius: 4px;
-  color: white;
-  padding: 14px 30px;
-  text-align: center;
-  cursor: pointer;
-  margin-top: 5px;
-  border: none;
+  opacity: 0.8;
 }
 
-.loader {
-  height: 0;
-  width: 0;
-  border: 6px solid blueviolet;
-  border-bottom-color: #ccc;
-  padding: 10px;
-  border-radius: 50%;
-  animation: rotate 1s infinite linear;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.checkbox-label {
+  font-size: 16px;
+  opacity: 0.8;
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+.checkbox-label {
+  font-size: 16px;
+  opacity: 0.8;
 }
-.row {
+
+.checkbox-field {
   display: flex;
-  margin-top: 25px;
-}
-
-.action-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.action-right {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-}
-
-.action-fullWidth {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 100%;
 }
 
-.action-right > .loader {
-  position: static;
+.checkbox-label {
+  color: blueviolet;
+}
+
+.isColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.checkbox-container {
+  display: flex;
+}
+
+.checkbox-name {
+  margin: 3px 3px 0px 0px;
 }.text-label {
   font-size: 16px;
   opacity: 0.8;
@@ -209,66 +190,64 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
-}.checkbox-label {
+}.submit-btn {
+  margin-top: 30px;
   font-size: 16px;
-  opacity: 0.8;
+  background-color: blueviolet;
+  border-radius: 4px;
+  color: white;
+  padding: 14px 30px;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 5px;
+  border: none;
 }
 
-.checkbox-label {
-  font-size: 16px;
-  opacity: 0.8;
+.loader {
+  height: 0;
+  width: 0;
+  border: 6px solid blueviolet;
+  border-bottom-color: #ccc;
+  padding: 10px;
+  border-radius: 50%;
+  animation: rotate 1s infinite linear;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.checkbox-label {
-  font-size: 16px;
-  opacity: 0.8;
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-
-.checkbox-field {
+.row {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  margin-top: 25px;
+}
+
+.action-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-right {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.action-fullWidth {
   width: 100%;
 }
 
-.checkbox-label {
-  color: blueviolet;
-}
-
-.isColumn {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.checkbox-container {
-  display: flex;
-}
-
-.checkbox-name {
-  margin: 3px 3px 0px 0px;
-}.helper-text, .error-text {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-.helper-text, .error-text {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-.helper-text, .error-text {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-.error-text {
-  color: red;
-}
-
-.helper-text {
-  color: black;
+.action-right > .loader {
+  position: static;
 }.field-array-label, .field-array-container-label {
   font-size: 16px;
   opacity: 0.8;
@@ -350,41 +329,6 @@ input:checked + .slider:before {
 
 .array-add-icon {
   display: flex;
-}.radio-label {
-  font-size: 16px;
-  opacity: 0.8;
-}
-
-.radio-label {
-  font-size: 16px;
-  opacity: 0.8;
-}
-
-.radio-label {
-  font-size: 16px;
-  opacity: 0.8;
-}
-
-.radio-field {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
-}
-
-.radio-label {
-  color: blueviolet;
-}
-
-.isColumn {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.radio-name {
-  margin: 3px 3px 0px 0px;
 }.file-input-label {
   font-size: 16px;
   opacity: 0.8;
@@ -466,6 +410,41 @@ input:checked + .slider:before {
   padding: 5px 8px 5px 8px;
   font-size: 14px;
   cursor: auto;
+}.radio-label {
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.radio-label {
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.radio-label {
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.radio-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.radio-label {
+  color: blueviolet;
+}
+
+.isColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.radio-name {
+  margin: 3px 3px 0px 0px;
 }.select-field-label {
   font-size: 16px;
   opacity: 0.8;
@@ -593,6 +572,27 @@ input:checked + .slider:before {
 
 .textarea-field-box {
   width: 100%;
+}.helper-text, .error-text {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.helper-text, .error-text {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.helper-text, .error-text {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.error-text {
+  color: red;
+}
+
+.helper-text {
+  color: black;
 }.phone-field-label {
   font-size: 16px;
   opacity: 0.8;

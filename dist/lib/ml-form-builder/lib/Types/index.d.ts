@@ -11,4 +11,5 @@ export interface FieldItemProps {
 export interface Option {
     name: string;
     value: string;
+    defaultChecked?: boolean;
 }
