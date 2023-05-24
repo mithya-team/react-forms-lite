@@ -124,6 +124,8 @@ attachField("phone", <PhoneField />);
 attachField("array", <ArrayField />);
 attachField("password", <TextField />, { type: "password" });
 attachField("text", <TextField />, { type: "text" });
+attachField("number", <TextField />, { type: "number" });
+attachField("range", <TextField />, { type: "range" });
 attachField("plaintext", <PlainText />);
 attachField("textarea", <TextArea />);
 

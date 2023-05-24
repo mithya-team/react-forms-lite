@@ -8979,6 +8979,8 @@ attachField("phone", React.createElement(PhoneField, null));
 attachField("array", React.createElement(ArrayField, null));
 attachField("password", React.createElement(TextField, null), { type: "password" });
 attachField("text", React.createElement(TextField, null), { type: "text" });
+attachField("number", React.createElement(TextField, null), { type: "number" });
+attachField("range", React.createElement(TextField, null), { type: "range" });
 attachField("plaintext", React.createElement(PlainText, null));
 attachField("textarea", React.createElement(TextArea, null));
 const BuildFormRow = (props) => {
