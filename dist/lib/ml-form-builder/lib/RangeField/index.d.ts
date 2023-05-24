@@ -6,6 +6,7 @@ export interface RangeProps extends FieldItemProps {
     min?: number;
     max?: number;
     step?: number;
+    value?: number;
 }
 interface RangesProps extends FieldProps {
     fieldProps?: RangeProps;

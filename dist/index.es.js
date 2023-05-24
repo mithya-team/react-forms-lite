@@ -8800,12 +8800,12 @@ const TextArea = (props) => {
 
 const RangeField = (props) => {
     const { fieldProps = {}, formikProps = {}, } = props;
-    const { min, max, step, label, name = "", classNames, nativeProps, disabled, } = fieldProps;
+    const { min, max, step, label, name = "", classNames, value = 50, nativeProps, disabled, } = fieldProps;
     const fieldValue = get_1(formikProps, `values.${name}`);
     return (React.createElement("div", { className: clsx("range-field", classNames) },
         label && React.createElement("label", { className: "range-label" }, label),
         React.createElement("div", { className: clsx("range-field-box") },
-            React.createElement("input", { className: clsx("input-box"), type: "range", id: name, name: name, value: fieldValue || 50, onBlur: formikProps.handleBlur, onChange: formikProps.handleChange, disabled: disabled, min: min, max: max, step: step, ...nativeProps }))));
+            React.createElement("input", { className: clsx("input-box"), type: "range", id: name, name: name, value: fieldValue || value, onBlur: formikProps.handleBlur, onChange: formikProps.handleChange, disabled: disabled, min: min, max: max, step: step, ...nativeProps }))));
 };
 
 /**

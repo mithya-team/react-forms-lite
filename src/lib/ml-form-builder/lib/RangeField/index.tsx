@@ -10,6 +10,7 @@ export interface RangeProps extends FieldItemProps {
   min?: number;
   max?: number;
   step?: number;
+  value?: number;
 }
 
 interface RangesProps extends FieldProps {
@@ -29,22 +30,22 @@ export const RangeField: React.FC<RangesProps> = (props) => {
     label,
     name = "",
     classNames,
+    value = 50,
     nativeProps,
     disabled,
   } = fieldProps;
 
   const fieldValue = get(formikProps, `values.${name}`);
-
   return (
     <div className={clsx("range-field", classNames)}>
       {label && <label className="range-label">{label}</label>}
       <div className={clsx("range-field-box")}>
         <input
           className={clsx("input-box")}
-          type={"range"}
+          type="range"
           id={name}
           name={name}
-          value={fieldValue || 50}
+          value={fieldValue || value}
           onBlur={formikProps.handleBlur}
           onChange={formikProps.handleChange}
           disabled={disabled}
