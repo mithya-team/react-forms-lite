@@ -8802,6 +8802,16 @@ const TextArea = (props) => {
         React.createElement(HelperText, { fieldProps: fieldProps, formikProps: formikProps })));
 };
 
+const RangeField = (props) => {
+    const { fieldProps = {}, formikProps = {}, } = props;
+    const { min, max, step, label, name = "", classNames, nativeProps, disabled, } = fieldProps;
+    const fieldValue = get_1(formikProps, `values.${name}`);
+    return (React.createElement("div", { className: clsx("range-field", classNames) },
+        label && React.createElement("label", { className: "range-label" }, label),
+        React.createElement("div", { className: clsx("range-field-box") },
+            React.createElement("input", { className: clsx("input-box"), type: "range", id: name, name: name, value: fieldValue || 50, onBlur: formikProps.handleBlur, onChange: formikProps.handleChange, disabled: disabled, min: min, max: max, step: step, ...nativeProps }))));
+};
+
 /**
  * A specialized version of `_.forEach` for arrays without support for
  * iteratee shorthands.
@@ -8980,7 +8990,7 @@ attachField("array", React.createElement(ArrayField, null));
 attachField("password", React.createElement(TextField, null), { type: "password" });
 attachField("text", React.createElement(TextField, null), { type: "text" });
 attachField("number", React.createElement(TextField, null), { type: "number" });
-attachField("range", React.createElement(TextField, null), { type: "range" });
+attachField("range", React.createElement(RangeField, null), { type: "range" });
 attachField("plaintext", React.createElement(PlainText, null));
 attachField("textarea", React.createElement(TextArea, null));
 const BuildFormRow = (props) => {
@@ -9106,6 +9116,7 @@ exports.MLFormContent = MLFormContent;
 exports.PhoneField = PhoneField;
 exports.PlainText = PlainText;
 exports.Radio = Radio;
+exports.RangeField = RangeField;
 exports.ReactForm = ReactForm;
 exports.SelectField = SelectField;
 exports.Switch = Switch;
