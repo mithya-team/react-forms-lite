@@ -17,6 +17,7 @@ import {
   TextField,
   PlainText,
   TextArea,
+  RangeField,
 } from "./lib";
 import { FieldItemProps } from "./lib/Types";
 import "./index.module.scss";
@@ -124,6 +125,8 @@ attachField("phone", <PhoneField />);
 attachField("array", <ArrayField />);
 attachField("password", <TextField />, { type: "password" });
 attachField("text", <TextField />, { type: "text" });
+attachField("number", <TextField />, { type: "number" });
+attachField("range", <RangeField />, { type: "range" });
 attachField("plaintext", <PlainText />);
 attachField("textarea", <TextArea />);
 

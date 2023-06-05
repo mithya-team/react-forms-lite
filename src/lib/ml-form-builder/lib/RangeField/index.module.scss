@@ -1,0 +1,19 @@
+@import "../../Styles/extends";
+@import "../../Styles/mixins";
+@import "../../Styles/extends";
+
+.range-field {
+    @include componentField;
+}
+
+.range-label {
+    @include componentLabel;
+}
+
+.input-box {
+    @extend %input-select-box;
+}
+
+.range-field-box {
+    width: 100%;
+}

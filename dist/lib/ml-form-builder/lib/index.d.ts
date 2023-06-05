@@ -11,3 +11,4 @@ export * from './Constants';
 export * from './PlainText';
 export * from './Types';
 export * from './TextArea';
+export * from './RangeField';
